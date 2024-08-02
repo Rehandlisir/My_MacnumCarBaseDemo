@@ -1,0 +1,27 @@
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Macnum_Car'
+compiling main.c...
+..\..\Drivers\./BSP/PS2/PS2.h(92): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\User\main.c: 1 warning, 0 errors
+compiling task.c...
+..\..\Drivers\./BSP/PS2/PS2.h(92): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\Drivers\BSP\TASK\task.c(52): warning:  #1-D: last line of file ends without a newline
+  	
+..\..\Drivers\BSP\TASK\task.c: 2 warnings, 0 errors
+compiling API_Schedule.c...
+..\..\Drivers\./BSP/PS2/PS2.h(92): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\Drivers\BSP\API_Schedule\API_Schedule.c: 1 warning, 0 errors
+compiling moterdriver.c...
+..\..\Drivers\./BSP/PS2/PS2.h(92): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\Drivers\BSP\MoterDrive\moterdriver.c(253): warning:  #1-D: last line of file ends without a newline
+  }
+..\..\Drivers\BSP\MoterDrive\moterdriver.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=8168 RO-data=448 RW-data=104 ZI-data=1384  
+FromELF: creating hex file...
+"..\..\Output\DaYue_STM32F405RGT6.axf" - 0 Error(s), 6 Warning(s).
+Build Time Elapsed:  00:00:14
