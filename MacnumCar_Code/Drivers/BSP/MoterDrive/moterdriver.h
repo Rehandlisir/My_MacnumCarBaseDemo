@@ -98,7 +98,7 @@ typedef struct
 // extern TIM_HandleTypeDef g_time8_pwm_chy_handle;  /* 前轮电机 1 函数句柄*/
 // extern TIM_HandleTypeDef g_time4_pwm_chy_handle;  /* 后轮电机 2 函数句柄*/
 void MoterdriveInit(void);
-void MoterFoward_pwm_chy_init(uint16_t arr, uint16_t psc);
+void MoterFront_pwm_chy_init(uint16_t arr, uint16_t psc);
 void MoterBack_pwm_chy_init(uint16_t arr, uint16_t psc) ;
 void FrontLmoter_PwmSet(uint16_t ccr1,uint16_t ccr2);
 void FrontRmoter_PwmSet(uint16_t ccr3,uint16_t ccr4);
@@ -116,4 +116,5 @@ void FrontLmoter_Move(uint8_t dir,double duty_cycle);
 void FrontRmoter_Move(uint8_t dir,double duty_cycle);
 void BackLmoter_Move(uint8_t dir,double duty_cycle);
 void BackRmoter_Move(uint8_t dir,double duty_cycle);
+void MacnamuWhellDrive(void);
 #endif

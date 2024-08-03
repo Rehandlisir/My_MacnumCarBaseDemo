@@ -318,14 +318,63 @@ void PS2_VibrationSet(uint8_t motor1, uint8_t motor2)
 void PS2_CapData(void)
 {
 
-    // uint8_t key,LEFT_X,LEFT_Y,RIGHT_X,RIGHT_Y;
-    s_ps2data.key = PS2_DataKey();
+    static uint8_t key,LEFT_X,LEFT_Y,RIGHT_X,RIGHT_Y,Handl_LX,Handl_LY,Handl_RX,Handl_RY;
+
+    // key = PS2_DataKey();
     
-    if (s_ps2data.key==9||s_ps2data.key==11)
+    // if (key==9||key==11)
+    // {
+    //     PS2_VibrationSet(0,0xFF);
+	// }
+    // else if(key==10||key==12)
+    // {
+    //     PS2_VibrationSet(0xFF,0);
+    // }
+	// else
+	// {
+	// 	 PS2_VibrationSet(0,0);
+
+	// }
+    // LEFT_X = PS2_AnologData(PSS_LX);
+    // LEFT_Y= PS2_AnologData(PSS_LY);
+    // RIGHT_X = PS2_AnologData(PSS_RX);
+    // RIGHT_Y = PS2_AnologData(PSS_RY);
+	// /*左手柄数据处理*/
+	// if(LEFT_X>123 && LEFT_X<133 )
+	// {
+	// 	LEFT_X = 128;
+	// }
+
+	// if (LEFT_Y>122 && LEFT_Y<132)
+	// {
+
+	// 	LEFT_Y = 127;
+	// }
+	// Handl_LX = LEFT_X -128;
+	// Handl_LY = 127-LEFT_Y;
+
+	// /*右手柄数据处理*/
+	// if(RIGHT_X>123 && RIGHT_X<133 )
+	// {
+	// 	RIGHT_X = 128;
+	// }
+
+	// if (RIGHT_Y>122 && RIGHT_Y<132)
+	// {
+
+	// 	RIGHT_Y = 127;
+	// }
+	// Handl_LX = LEFT_X -128;
+	// Handl_LY = 127-LEFT_Y;
+	// Handl_RX = RIGHT_X -128;
+	// Handl_RY = 127-RIGHT_Y;
+    key = PS2_DataKey();
+    
+    if (key==9||key==11)
     {
         PS2_VibrationSet(0,0xFF);
 	}
-    else if(s_ps2data.key==10||s_ps2data.key==12)
+    else if(key==10||key==12)
     {
         PS2_VibrationSet(0xFF,0);
     }
@@ -334,40 +383,39 @@ void PS2_CapData(void)
 		 PS2_VibrationSet(0,0);
 
 	}
-    s_ps2data.LEFT_X = PS2_AnologData(PSS_LX);
-    s_ps2data.LEFT_Y= PS2_AnologData(PSS_LY);
-    s_ps2data.RIGHT_X = PS2_AnologData(PSS_RX);
-    s_ps2data.RIGHT_Y = PS2_AnologData(PSS_RY);
-	/*左手柄数据处理*/
-	if(s_ps2data.LEFT_X>123 && s_ps2data.LEFT_X<133 )
-	{
-		s_ps2data.LEFT_X = 128;
-	}
+    LEFT_X = PS2_AnologData(PSS_LX);
+    LEFT_Y= PS2_AnologData(PSS_LY);
+    RIGHT_X = PS2_AnologData(PSS_RX);
+    RIGHT_Y = PS2_AnologData(PSS_RY);
+	// /*左手柄数据处理*/
+	// if(LEFT_X>123 && LEFT_X<133 )
+	// {
+	// 	LEFT_X = 128;
+	// }
 
-	if (s_ps2data.LEFT_Y>122 && s_ps2data.LEFT_Y<132)
-	{
+	// if (LEFT_Y>122 && LEFT_Y<132)
+	// {
 
-		s_ps2data.LEFT_Y = 127;
-	}
-	s_ps2data.Handl_LX = s_ps2data.LEFT_X -128;
-	s_ps2data.Handl_LY = 127-s_ps2data.LEFT_Y;
+	// 	LEFT_Y = 127;
+	// }
+	// Handl_LX = LEFT_X -128;
+	// Handl_LY = 127-LEFT_Y;
 
-	/*右手柄数据处理*/
-	if(s_ps2data.RIGHT_X>123 && s_ps2data.RIGHT_X<133 )
-	{
-		s_ps2data.RIGHT_X = 128;
-	}
+	// /*右手柄数据处理*/
+	// if(RIGHT_X>123 && RIGHT_X<133 )
+	// {
+	// 	RIGHT_X = 128;
+	// }
 
-	if (s_ps2data.RIGHT_Y>122 && s_ps2data.RIGHT_Y<132)
-	{
+	// if (RIGHT_Y>122 && RIGHT_Y<132)
+	// {
 
-		s_ps2data.RIGHT_Y = 127;
-	}
-	s_ps2data.Handl_LX = s_ps2data.LEFT_X -128;
-	s_ps2data.Handl_LY = 127-s_ps2data.LEFT_Y;
-	s_ps2data.Handl_RX = s_ps2data.RIGHT_X -128;
-	s_ps2data.Handl_RY = 127-s_ps2data.RIGHT_Y;
-
-    printf("\r\n %d is pressed\r\n",s_ps2data.key);
-    printf("LEFT_X:%5d,LEFT_Y:%5d,RIGHT_X:%5d,RIGHT_Y:%5d\r\n",s_ps2data.LEFT_X,s_ps2data.LEFT_Y,s_ps2data.RIGHT_X,s_ps2data.RIGHT_Y);
+	// 	RIGHT_Y = 127;
+	// }
+	// Handl_LX = LEFT_X -128;
+	// Handl_LY = 127-LEFT_Y;
+	// Handl_RX = RIGHT_X -128;
+	// Handl_RY = 127-RIGHT_Y;
+    printf("\r\n %d is pressed\r\n",key);
+    printf("LEFT_X:%5d,LEFT_Y:%5d,RIGHT_X:%5d,RIGHT_Y:%5d\r\n",LEFT_X,LEFT_Y,RIGHT_X,RIGHT_Y);
 }

@@ -8,13 +8,14 @@
  * 
  * Copyright (c) 2024-2034  , Rehand Medical Technology Co. LTDl, All Rights Reserved. 
  */
-#include "./BSP/MoterDrive/moterdriver.h"
 
+#include "./BSP/MoterDrive/moterdriver.h"
+#include "math.h"
 
 MACNAUM_CAR car;
 
 
-void MoterFoward_pwm_chy_init(uint16_t arr, uint16_t psc) // 前轮
+void MoterFront_pwm_chy_init(uint16_t arr, uint16_t psc) // 前轮
 {
     TIM_HandleTypeDef g_time8_pwm_chy_handle ;  /* 前轮电机 1 函数句柄*/
     TIM_OC_InitTypeDef tim8_oc_pwm_chy = {0};                       /* 定时器9输出句柄 */
@@ -96,7 +97,7 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef *htim)
 }
 void MoterdriveInit(void)
 {
-    MoterFoward_pwm_chy_init(1000 - 1, 84 - 1);    //* 168 000 000 / 1000*84     R  2khz频率的PWM 波形*/ 
+    MoterFront_pwm_chy_init(1000 - 1, 84 - 1);    //* 168 000 000 / 1000*84     R  2khz频率的PWM 波形*/ 
     MoterBack_pwm_chy_init(1000 - 1, 42 - 1);     //* 84 000 000 / 1000*42      L 2khz频率的PWM 波形*  /
     FrontLmoter_Stop();
     FrontRmoter_Stop();
@@ -315,13 +316,102 @@ void MacnamuWhellDrive(void)
 
     switch (car.state)
     {
-    case /* constant-expression */: IDDLE
+        static double Duty_Cycle;
+        s_ps2data.Handl_LY = abs(s_ps2data.Handl_LY);
+        s_ps2data.Handl_RY = abs(s_ps2data.Handl_RY);
+        s_ps2data.Handl_LX = abs(s_ps2data.Handl_LX);
+        s_ps2data.Handl_RX = abs(s_ps2data.Handl_RX);
+		case IDDLE:
         FrontLmoter_Stop();
         FrontRmoter_Stop();
         BackLmoter_Stop();
         BackRmoter_Stop();
-        break;
-    
+        Duty_Cycle =0.0;
+        break; 
+		case FORWARD:
+        Duty_Cycle = (s_ps2data.Handl_LY+s_ps2data.Handl_RY)/255.0;
+        FrontLmoter_Move(1,Duty_Cycle);
+        BackLmoter_Move(1,Duty_Cycle);
+        FrontRmoter_Move(0,Duty_Cycle);
+        BackRmoter_Move(0,Duty_Cycle);
+		break;
+        case BACKWARD:
+        Duty_Cycle = (s_ps2data.Handl_LY+s_ps2data.Handl_RY)/255.0;
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+        case MOVE_LEFT_PARALLEL:
+        Duty_Cycle = (s_ps2data.Handl_LX+s_ps2data.Handl_RX)/255.0;
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(1,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(0,Duty_Cycle);
+		break;
+        case MOVE_RIGHT_PARALLEL:
+        Duty_Cycle = (s_ps2data.Handl_LY+s_ps2data.Handl_RY)/255.0;
+        FrontLmoter_Move(1,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(0,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+        case TURN_LEFT_AROUND:
+        Duty_Cycle = (s_ps2data.Handl_LY+s_ps2data.Handl_RY)/255.0;
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+        case FRONT_LEFT:
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+        case FRONT_RIGHT:
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+        case BACK_LEFT:
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+        case BACK_RIGHT:
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+        case TURN_FRONTAXISLEFT_AROUND:
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+       case TURN_FRONTAXISRIGHT_AROUND:
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+       case TURN_BACKAXISLEFT_AROUND:
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+       case TURN_BACKAXISRIGHT_AROUND:
+        FrontLmoter_Move(0,Duty_Cycle);
+        BackLmoter_Move(0,Duty_Cycle);
+        FrontRmoter_Move(1,Duty_Cycle);
+        BackRmoter_Move(1,Duty_Cycle);
+		break;
+
     default:
         break;
     }

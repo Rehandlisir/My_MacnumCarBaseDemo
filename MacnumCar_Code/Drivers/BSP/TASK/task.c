@@ -26,7 +26,9 @@ void Hard_devInit(void)
     // iwdg_init(IWDG_PRESCALER_64, 500);      /* 预分频数为64,重载值为500,溢出时间约为1s */
     /*外设初始化*/
     led_init();                             /* 运行指示初始化 */
-	PS2_SetInit();                          /*PS2摇杆初始化*/                        
+	PS2_SetInit();                          /*PS2摇杆初始化*/  
+    MoterdriveInit();
+
 }
 
 /**
@@ -45,7 +47,7 @@ void Task_GetPS2Data(void)
 
 void Task_MacnumWhellDrive(void)
 {
-    ;
+   MacnamuWhellDrive() ;
 }
 
 

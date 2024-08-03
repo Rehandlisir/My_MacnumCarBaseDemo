@@ -5,7 +5,7 @@
 struct TaskStruct TaskST[]=
 {
     { 0,       1,              0,           Task_GetPS2Data},
-    { 0,       2,              0,           Task_MacnumWhellDrive},
+    // { 0,       2,              0,           Task_MacnumWhellDrive},
 	{ 0,       300,            0,		  	Task_LedFlash},
 
 };
