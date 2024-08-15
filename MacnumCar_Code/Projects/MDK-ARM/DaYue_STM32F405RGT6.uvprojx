@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F405xx,__FPU_PRESENT=1,__FPU_USED=1,ARM_MATH_CM4,__CC_ARM</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\User;..\..\Drivers;..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;..\..\Drivers\CMSIS\Include;..\..\Drivers\STM32F4xx_HAL_Driver\Inc;..\..\Drivers\BSP;..\..\Drivers\CMSIS\DSP\Include</IncludePath>
+              <IncludePath>..\..\User;..\..\Drivers;..\..\Drivers\CMSIS\Device\ST\STM32F4xx\Include;..\..\Drivers\CMSIS\Include;..\..\Drivers\STM32F4xx_HAL_Driver\Inc;..\..\Drivers\CMSIS\DSP\Include;..\..\Drivers\BSP;..\..\Drivers\BSP\VL53L0X</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -929,6 +929,16 @@
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Drivers\BSP\LED\led.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>VL53L0X</GroupName>
+          <Files>
+            <File>
+              <FileName>VL53L0X.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\VL53L0X\VL53L0X.c</FilePath>
             </File>
           </Files>
         </Group>

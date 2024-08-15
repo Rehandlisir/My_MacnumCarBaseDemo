@@ -4,5 +4,13 @@
 
 int main(void)
 {
-	  PeachOSRun();    
+	PeachOSRun();    
+	// Hard_devInit();
+	// while(1)
+	// {
+
+	// 	PS2_CapData();
+	// 	delay_ms(50);
+	// }
+
 }

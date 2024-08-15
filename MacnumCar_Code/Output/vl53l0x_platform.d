@@ -1,0 +1,14 @@
+..\..\output\vl53l0x_platform.o: ..\..\Drivers\BSP\VL53L0X\platform\src\vl53l0x_platform.c
+..\..\output\vl53l0x_platform.o: ..\..\Drivers\BSP\VL53L0X\platform\inc\vl53l0x_platform.h
+..\..\output\vl53l0x_platform.o: ..\..\Drivers\BSP\VL53L0X\core\inc\vl53l0x_def.h
+..\..\output\vl53l0x_platform.o: ..\..\Drivers\BSP\VL53L0X\core\inc\vl53l0x_device.h
+..\..\output\vl53l0x_platform.o: ..\..\Drivers\BSP\VL53L0X\platform\inc\vl53l0x_types.h
+..\..\output\vl53l0x_platform.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\..\output\vl53l0x_platform.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\..\output\vl53l0x_platform.o: ..\..\Drivers\BSP\VL53L0X\platform\inc\vl53l0x_platform_log.h
+..\..\output\vl53l0x_platform.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\..\output\vl53l0x_platform.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\..\output\vl53l0x_platform.o: ..\..\Drivers\BSP\VL53L0X\platform\inc\vl53l0x_i2c_platform.h
+..\..\output\vl53l0x_platform.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+..\..\output\vl53l0x_platform.o: ..\..\Drivers\BSP\VL53L0X\core\inc\vl53l0x_api.h
+..\..\output\vl53l0x_platform.o: ..\..\Drivers\BSP\VL53L0X\core\inc\vl53l0x_api_strings.h

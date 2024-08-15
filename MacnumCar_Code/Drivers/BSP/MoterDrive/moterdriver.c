@@ -2,8 +2,8 @@
  * @Author: lisir lisir@rehand.com
  * @Date: 2024-07-31 10:05:49
  * @LastEditors: lisir lisir@rehand.com
- * @LastEditTime: 2024-08-12 11:09:58
- * @FilePath: \My_MacnumCarBaseDemo\My_MacnumCarBaseDemo\MacnumCar_Code\Drivers\BSP\MoterDrive\moterdriver.c
+ * @LastEditTime: 2024-08-14 11:27:59
+ * @FilePath: \Project_MacnumCar\My_MacnumCarBaseDemo\MacnumCar_Code\Drivers\BSP\MoterDrive\moterdriver.c
  * @Description: Macnum_Car MoterDrive
  * 
  * Copyright (c) 2024-2034  , Rehand Medical Technology Co. LTDl, All Rights Reserved. 
@@ -318,7 +318,7 @@ void MacnamuWhellDrive(void)
 
         car.state = TURN_BACKAXISRIGHT_AROUND;
     }
-//    printf("car.state:%d\n",car.state);
+
     switch (car.state)
     {
         static double Duty_Cycle;

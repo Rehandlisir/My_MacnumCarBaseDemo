@@ -2,8 +2,8 @@
  * @Author: lisir lisir@rehand.com
  * @Date: 2024-07-31 10:05:49
  * @LastEditors: lisir lisir@rehand.com
- * @LastEditTime: 2024-08-12 11:10:38
- * @FilePath: \My_MacnumCarBaseDemo\My_MacnumCarBaseDemo\MacnumCar_Code\Drivers\BSP\MoterDrive\moterdriver.h
+ * @LastEditTime: 2024-08-14 11:28:15
+ * @FilePath: \Project_MacnumCar\My_MacnumCarBaseDemo\MacnumCar_Code\Drivers\BSP\MoterDrive\moterdriver.h
  * @Description: 
  * 
  * Copyright (c) 2024-2034  , Rehand Medical Technology Co. LTDl, All Rights Reserved. 
@@ -92,8 +92,7 @@ typedef struct
 {
 	E_CARSTATE state;/* data */
 }MACNAUM_CAR;
-
-
+extern MACNAUM_CAR car;
 /*************************电机驱动变量*****************************/
 // extern TIM_HandleTypeDef g_time8_pwm_chy_handle;  /* 前轮电机 1 函数句柄*/
 // extern TIM_HandleTypeDef g_time4_pwm_chy_handle;  /* 后轮电机 2 函数句柄*/

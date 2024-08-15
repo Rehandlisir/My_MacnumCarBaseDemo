@@ -1,3 +1,13 @@
+/*
+ * @Author: lisir lisir@rehand.com
+ * @Date: 2024-08-12 09:35:11
+ * @LastEditors: lisir lisir@rehand.com
+ * @LastEditTime: 2024-08-14 10:56:35
+ * @FilePath: \Project_MacnumCar\My_MacnumCarBaseDemo\MacnumCar_Code\Drivers\BSP\API_Schedule\API_Schedule.c
+ * @Description: 
+ * 
+ * Copyright (c) 2024-2034  , Rehand Medical Technology Co. LTDl, All Rights Reserved. 
+ */
 #include "./BSP/API_Schedule/API_Schedule.h"
 #include "./BSP/TASK/task.h"
 
@@ -5,7 +15,7 @@
 struct TaskStruct TaskST[]=
 {
     { 0,       1,              0,           Task_GetPS2Data},
-    // { 0,       5,              0,           Task_MacnumWhellDrive},
+    { 0,       5,              0,           Task_MacnumWhellDrive},
 	{ 0,       300,            0,		  	Task_LedFlash},
 
 };

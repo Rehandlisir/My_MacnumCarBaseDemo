@@ -2,8 +2,8 @@
  * @Author: lisir lisir@rehand.com
  * @Date: 2024-07-31 09:50:11
  * @LastEditors: lisir lisir@rehand.com
- * @LastEditTime: 2024-08-12 13:36:40
- * @FilePath: \My_MacnumCarBaseDemo\My_MacnumCarBaseDemo\MacnumCar_Code\Drivers\BSP\PS2\PS2.c
+ * @LastEditTime: 2024-08-14 11:26:04
+ * @FilePath: \Project_MacnumCar\My_MacnumCarBaseDemo\MacnumCar_Code\Drivers\BSP\PS2\PS2.c
  * @Description: PS2 datacap
  * 
  * Copyright (c) 2024-2034  , Rehand Medical Technology Co. LTDl, All Rights Reserved. 
@@ -40,7 +40,7 @@ void PS2_GPIOInit(void)
 	PS2_GPIO_CLK_ENABLE();		//使能PORTB时钟
 	GPIO_InitStructure.Pin  = PS2_DI_PIN;
 	GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_HIGH;
-	GPIO_InitStructure.Mode = GPIO_PULLDOWN; 		//设置成上拉、下拉、浮空输入皆可
+	GPIO_InitStructure.Mode = GPIO_MODE_INPUT; 		//设置成上拉、下拉、浮空输入皆可
 	HAL_GPIO_Init(PS2_COMAPOART, &GPIO_InitStructure);       /* 初始化输入引脚 */
 	//输出  DO->PB13    CS->PB14  CLK->PB15
 	GPIO_InitStructure.Pin  = PS2_DO_PIN|PS2_CS_PIN|PS2_CLK_PIN;
@@ -322,10 +322,12 @@ void  PS2_CapData(void)
     if (s_ps2data.key==9||s_ps2data.key==11)
     {
         PS2_VibrationSet(0,0xFF);
+		delay_ms(100);
 	}
     else if(s_ps2data.key==10||s_ps2data.key==12)
     {
         PS2_VibrationSet(0xFF,0);
+		delay_ms(100);
     }
 	else
 	{
@@ -365,5 +367,5 @@ void  PS2_CapData(void)
 	s_ps2data.Handl_LY = 127-s_ps2data.LEFT_Y;
 	s_ps2data.Handl_RX = s_ps2data.RIGHT_X -128;
 	s_ps2data.Handl_RY = 127-s_ps2data.RIGHT_Y;
-    printf("%d is pressed\r\n,LEFT_X:%5d,LEFT_Y:%d,RIGHT_X:%d,RIGHT_Y:%d\r\n",s_ps2data.key,s_ps2data.Handl_LX ,s_ps2data.Handl_LY ,s_ps2data.Handl_RX ,s_ps2data.Handl_RY);
+    printf("%dis pressed,LEFT_X:%5d,LEFT_Y:%d,RIGHT_X:%d,RIGHT_Y:%d\r\n",s_ps2data.key,s_ps2data.Handl_LX ,s_ps2data.Handl_LY ,s_ps2data.Handl_RX ,s_ps2data.Handl_RY);
 }

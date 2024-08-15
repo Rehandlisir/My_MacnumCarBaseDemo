@@ -2,8 +2,8 @@
  * @Author: lisir lisir@rehand.com
  * @Date: 2024-07-31 10:04:10
  * @LastEditors: lisir lisir@rehand.com
- * @LastEditTime: 2024-08-12 11:24:13
- * @FilePath: \My_MacnumCarBaseDemo\My_MacnumCarBaseDemo\MacnumCar_Code\Drivers\BSP\TASK\task.c
+ * @LastEditTime: 2024-08-14 10:49:54
+ * @FilePath: \Project_MacnumCar\My_MacnumCarBaseDemo\MacnumCar_Code\Drivers\BSP\TASK\task.c
  * @Description: 
  * 
  * Copyright (c) 2024-2034  , Rehand Medical Technology Co. LTDl, All Rights Reserved. 
@@ -48,4 +48,6 @@ void Task_GetPS2Data(void)
 void Task_MacnumWhellDrive(void)
 {
     MacnamuWhellDrive();
+    printf("car.state:%d\n",car.state);
+
 }
